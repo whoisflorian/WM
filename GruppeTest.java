@@ -18,6 +18,18 @@ public class GruppeTest
     private Mannschaft mannscha3;
     private Mannschaft mannscha4;
     private Gruppe gruppe1;
+    private Spiel spiel1;
+    private Spiel spiel2;
+    private Spiel spiel3;
+    private Spiel spiel4;
+    private Spiel spiel5;
+    private Spiel spiel6;
+
+    
+    
+    
+    
+    
 
     /**
      * Konstruktor fuer die Test-Klasse GruppeTest
@@ -43,6 +55,18 @@ public class GruppeTest
         gruppe1.mannschaftHinzufuegen(mannscha2);
         gruppe1.mannschaftHinzufuegen(mannscha3);
         gruppe1.mannschaftHinzufuegen(mannscha4);
+        spiel1 = new Spiel(mannscha1, mannscha4);
+        spiel2 = new Spiel(mannscha2, mannscha3);
+        spiel3 = new Spiel(mannscha4, mannscha3);
+        spiel4 = new Spiel(mannscha1, mannscha2);
+        spiel5 = new Spiel(mannscha2, mannscha4);
+        spiel6 = new Spiel(mannscha3, mannscha1);
+        gruppe1.spielHinzufuegen(spiel1);
+        gruppe1.spielHinzufuegen(spiel2);
+        gruppe1.spielHinzufuegen(spiel3);
+        gruppe1.spielHinzufuegen(spiel4);
+        gruppe1.spielHinzufuegen(spiel5);
+        gruppe1.spielHinzufuegen(spiel6);
     }
 
     /**
@@ -54,4 +78,20 @@ public class GruppeTest
     public void tearDown()
     {
     }
+
+    @Test
+    public void testGesamtPunkte()
+    {
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha1));
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha2));
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha3));
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha4));
+        spiel1.setzeErgebnis(2, 1);
+        spiel2.setzeErgebnis(0, 3);
+        assertEquals(5, gruppe1.gibGesamtPunkte(mannscha1));
+        assertEquals(2, gruppe1.gibGesamtPunkte(mannscha2));
+        assertEquals(5, gruppe1.gibGesamtPunkte(mannscha3));
+        assertEquals(2, gruppe1.gibGesamtPunkte(mannscha4));
+    }
 }
+

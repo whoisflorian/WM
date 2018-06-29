@@ -38,5 +38,40 @@ public class Spiel
         this.heimTore = heim;
         this.gastTore = gast;
     }
+    
+    public int gibPunkte(Mannschaft mannschaft)
+    {
+        if(heimMannschaft.equals(mannschaft))
+        {
+            if(heimTore > gastTore)
+            {
+                return 3;
+            }
+            else if(heimTore == gastTore)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else if(gastMannschaft.equals(mannschaft))
+        {
+            if(heimTore > gastTore)
+            {
+                return 0;
+            }
+            else if(heimTore == gastTore)
+            {
+                return 1;
+            }
+            else
+            {
+                return 3;
+            }
+        }
+        return -1;
+    }
 
 }

@@ -20,26 +20,24 @@ public class Gruppe
         mannschaften.add(mannschaft);
     }
     
-    public boolean spielplanErstellen()
+    public void spielHinzufuegen(Spiel spiel)
     {
-        if(mannschaften.size() != 4)
+        spiele.add(spiel);
+    }
+    
+    public int gibGesamtPunkte(Mannschaft mannschaft)
+    {
+        int punkte = 0;
+        
+        for(Spiel spiel: spiele)
         {
-            return false;
+            if(spiel.gibPunkte(mannschaft) != -1)
+            {
+                punkte = punkte + spiel.gibPunkte(mannschaft);
+            }
         }
         
-        //Runde 1
-        spiele.add(new Spiel(mannschaften.get(0), mannschaften.get(3)));
-        spiele.add(new Spiel(mannschaften.get(1), mannschaften.get(2)));
-        
-        //Runde 2
-        spiele.add(new Spiel(mannschaften.get(2), mannschaften.get(0)));
-        spiele.add(new Spiel(mannschaften.get(3), mannschaften.get(1)));
-        
-        //Runde 3
-        spiele.add(new Spiel(mannschaften.get(0), mannschaften.get(1)));
-        spiele.add(new Spiel(mannschaften.get(2), mannschaften.get(3)));
-        
-        return true;
+        return punkte;
     }
 
 }
