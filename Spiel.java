@@ -50,6 +50,46 @@ public class Spiel
         ergebnis.setzeTore(heim, gast);
     }
 
+    public int gibTore(Mannschaft mannschaft)
+    {
+        if(ergebnis == null)
+        {
+            return 0;
+        }
+        else
+        {
+            if(heimMannschaft.equals(mannschaft))
+            {
+                return gibHeimTore();
+            }
+            else if(gastMannschaft.equals(mannschaft))
+            {
+                return gibGastTore();
+            }
+        }
+        return -1;
+    }
+    
+    public int gibGegenTore(Mannschaft mannschaft)
+    {
+        if(ergebnis == null)
+        {
+            return 0;
+        }
+        else
+        {
+            if(heimMannschaft.equals(mannschaft))
+            {
+                return gibGastTore();
+            }
+            else if(gastMannschaft.equals(mannschaft))
+            {
+                return gibHeimTore();
+            }
+        }
+        return -1;
+    }
+    
     public int gibPunkte(Mannschaft mannschaft)
     {
         if(ergebnis == null)

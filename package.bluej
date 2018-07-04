@@ -1,18 +1,18 @@
 #BlueJ package file
-dependency1.from=Spiel
+dependency1.from=GruppeTest
 dependency1.to=Mannschaft
 dependency1.type=UsesDependency
-dependency2.from=Spiel
-dependency2.to=Ergebnis
+dependency2.from=GruppeTest
+dependency2.to=Gruppe
 dependency2.type=UsesDependency
 dependency3.from=GruppeTest
-dependency3.to=Mannschaft
+dependency3.to=Spiel
 dependency3.type=UsesDependency
-dependency4.from=GruppeTest
-dependency4.to=Gruppe
+dependency4.from=Spiel
+dependency4.to=Mannschaft
 dependency4.type=UsesDependency
-dependency5.from=GruppeTest
-dependency5.to=Spiel
+dependency5.from=Spiel
+dependency5.to=Ergebnis
 dependency5.type=UsesDependency
 dependency6.from=Gruppe
 dependency6.to=Mannschaft

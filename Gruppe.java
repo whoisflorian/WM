@@ -40,6 +40,32 @@ public class Gruppe
         return punkte;
     }
     
+    public int gibGesamtTore(Mannschaft mannschaft)
+    {
+        int tore = 0;
+        for(Spiel spiel: spiele)
+        {
+            if(spiel.gibPunkte(mannschaft) != -1)
+            {
+                tore = tore + spiel.gibTore(mannschaft);
+            }
+        }
+        return tore;
+    }
+    
+    public int gibGesamtGegenTore(Mannschaft mannschaft)
+    {
+        int tore = 0;
+        for(Spiel spiel: spiele)
+        {
+            if(spiel.gibPunkte(mannschaft) != -1)
+            {
+                tore = tore + spiel.gibGegenTore(mannschaft);
+            }
+        }
+        return tore;
+    }
+    
     public void spieleAusgeben()
     {
         for(Spiel spiel : spiele)
@@ -70,36 +96,12 @@ public class Gruppe
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public void tabelleAusgeben()
     {
         for(Mannschaft mannschaft : mannschaften)
         {
             System.out.println(mannschaft.gibName() + " " + gibGesamtPunkte(mannschaft) 
-                );
+                + " " + gibGesamtTore(mannschaft) + ":" + gibGesamtGegenTore(mannschaft));
         }
     }
 
