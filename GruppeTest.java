@@ -82,16 +82,18 @@ public class GruppeTest
     @Test
     public void testGesamtPunkte()
     {
-        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha1));
-        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha2));
-        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha3));
-        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha4));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha1));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha2));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha3));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha4));
+        gruppe1.spieleAusgeben();
         spiel1.setzeErgebnis(2, 1);
         spiel2.setzeErgebnis(0, 3);
-        assertEquals(5, gruppe1.gibGesamtPunkte(mannscha1));
-        assertEquals(2, gruppe1.gibGesamtPunkte(mannscha2));
-        assertEquals(5, gruppe1.gibGesamtPunkte(mannscha3));
-        assertEquals(2, gruppe1.gibGesamtPunkte(mannscha4));
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha1));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha2));
+        assertEquals(3, gruppe1.gibGesamtPunkte(mannscha3));
+        assertEquals(0, gruppe1.gibGesamtPunkte(mannscha4));
+        gruppe1.spieleAusgeben();
     }
 }
 

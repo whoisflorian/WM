@@ -39,5 +39,13 @@ public class Gruppe
         
         return punkte;
     }
+    
+    public void spieleAusgeben()
+    {
+        for(Spiel spiel : spiele)
+        {
+            System.out.println(spiel);
+        }
+    }
 
 }

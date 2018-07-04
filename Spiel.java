@@ -4,9 +4,8 @@ public class Spiel
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private Mannschaft heimMannschaft;
     private Mannschaft gastMannschaft;
-    private int heimTore;
-    private int gastTore;
-    
+    private Ergebnis ergebnis;
+
     /**
      * Konstruktor für Objekte der Klasse Spiel
      */
@@ -14,64 +13,93 @@ public class Spiel
     {
         this.heimMannschaft = heim;
         this.gastMannschaft = gast;
-        heimTore = 0;
-        gastTore = 0;
+        ergebnis = null;
     }
-    
+
     public Mannschaft gibHeimMannschaft()
     {
         return heimMannschaft;
     }
-    
+
     public Mannschaft gibGastMannschaft()
     {
         return gastMannschaft;
     }
-    
+
     public int gibHeimTore()
     {
-        return heimTore;
+        if(ergebnis == null)
+        {
+            return -1;
+        }
+        return ergebnis.gibHeimTore();
     }
     
+    public int gibGastTore()
+    {
+        if(ergebnis == null)
+        {
+            return -1;
+        }
+        return ergebnis.gibGastTore();
+    }
+
     public void setzeErgebnis(int heim, int gast)
     {
-        this.heimTore = heim;
-        this.gastTore = gast;
+        ergebnis = new Ergebnis();
+        ergebnis.setzeTore(heim, gast);
     }
-    
+
     public int gibPunkte(Mannschaft mannschaft)
     {
-        if(heimMannschaft.equals(mannschaft))
+        if(ergebnis == null)
         {
-            if(heimTore > gastTore)
-            {
-                return 3;
-            }
-            else if(heimTore == gastTore)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            return 0;
         }
-        else if(gastMannschaft.equals(mannschaft))
+        else
         {
-            if(heimTore > gastTore)
+            if(heimMannschaft.equals(mannschaft))
             {
-                return 0;
+                if(ergebnis.gibHeimTore() > ergebnis.gibGastTore())
+                {
+                    return 3;
+                }
+                else if(ergebnis.gibHeimTore() == ergebnis.gibGastTore())
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else if(heimTore == gastTore)
+            else if(gastMannschaft.equals(mannschaft))
             {
-                return 1;
-            }
-            else
-            {
-                return 3;
+                if(ergebnis.gibHeimTore() > ergebnis.gibGastTore())
+                {
+                    return 0;
+                }
+                else if(ergebnis.gibHeimTore() == ergebnis.gibGastTore())
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 3;
+                }
             }
         }
         return -1;
+    }
+    
+    public String toString()
+    {
+        String text = heimMannschaft.gibName() + " - " + gastMannschaft.gibName();
+        if(ergebnis != null)
+        {
+            text = text + " (" + ergebnis.gibHeimTore() + ":" + ergebnis.gibGastTore() + ")";
+        }
+        return text;
     }
 
 }
