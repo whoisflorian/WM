@@ -1,9 +1,9 @@
 #BlueJ package file
-dependency1.from=Gruppe
+dependency1.from=Spiel
 dependency1.to=Mannschaft
 dependency1.type=UsesDependency
-dependency2.from=Gruppe
-dependency2.to=Spiel
+dependency2.from=Spiel
+dependency2.to=Ergebnis
 dependency2.type=UsesDependency
 dependency3.from=GruppeTest
 dependency3.to=Mannschaft
@@ -14,11 +14,11 @@ dependency4.type=UsesDependency
 dependency5.from=GruppeTest
 dependency5.to=Spiel
 dependency5.type=UsesDependency
-dependency6.from=Spiel
+dependency6.from=Gruppe
 dependency6.to=Mannschaft
 dependency6.type=UsesDependency
-dependency7.from=Spiel
-dependency7.to=Ergebnis
+dependency7.from=Gruppe
+dependency7.to=Spiel
 dependency7.type=UsesDependency
 editor.fx.0.height=738
 editor.fx.0.width=816

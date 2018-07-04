@@ -87,13 +87,21 @@ public class GruppeTest
         assertEquals(0, gruppe1.gibGesamtPunkte(mannscha3));
         assertEquals(0, gruppe1.gibGesamtPunkte(mannscha4));
         gruppe1.spieleAusgeben();
+        gruppe1.tabelleAusgeben();
         spiel1.setzeErgebnis(2, 1);
         spiel2.setzeErgebnis(0, 3);
         assertEquals(3, gruppe1.gibGesamtPunkte(mannscha1));
         assertEquals(0, gruppe1.gibGesamtPunkte(mannscha2));
         assertEquals(3, gruppe1.gibGesamtPunkte(mannscha3));
         assertEquals(0, gruppe1.gibGesamtPunkte(mannscha4));
+        gruppe1.tabelleSortieren();
         gruppe1.spieleAusgeben();
+        gruppe1.tabelleAusgeben();
+        spiel3.setzeErgebnis(1, 1);
+        spiel4.setzeErgebnis(2, 3);
+        gruppe1.tabelleSortieren();
+        gruppe1.spieleAusgeben();
+        gruppe1.tabelleAusgeben();
     }
 }
 

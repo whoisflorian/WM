@@ -47,5 +47,60 @@ public class Gruppe
             System.out.println(spiel);
         }
     }
+    
+    public void tabelleSortieren()
+    {
+        boolean sortiert = false;
+        while(sortiert == false)
+        {
+            sortiert = true;
+            int index = 0;
+            while(index < mannschaften.size() - 1)
+            {
+                Mannschaft mannschaft1 = mannschaften.get(index);
+                Mannschaft mannschaft2 = mannschaften.get(index + 1);
+                if(gibGesamtPunkte(mannschaft1) < gibGesamtPunkte(mannschaft2))
+                {
+                    mannschaften.remove(index);
+                    mannschaften.add(index + 1, mannschaft1);
+                    sortiert = false;
+                }
+                index++;
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void tabelleAusgeben()
+    {
+        for(Mannschaft mannschaft : mannschaften)
+        {
+            System.out.println(mannschaft.gibName() + " " + gibGesamtPunkte(mannschaft) 
+                );
+        }
+    }
 
 }
